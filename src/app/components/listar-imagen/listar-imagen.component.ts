@@ -44,6 +44,8 @@ export class ListarImagenComponent implements OnInit {
 
   this.loading = false;
 
+  console.log(data)
+
      if(data.hits.length === 0) {
 
       this._imagenService.setError("OOOPS no encontramos ningún resultado de la búsqueda")
