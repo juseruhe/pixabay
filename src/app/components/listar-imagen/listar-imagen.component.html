@@ -34,11 +34,11 @@
   <div *ngIf="listImagenes.length > 0" class="d-flex justify-content-center mt-2">
     <ul class="pagination pagination-lg">
         {{paginaActual}}
-      <li class="page-item ">
+      <li class="page-item "  *ngIf="paginaAnteriorClass()">
         <a class="page-link" (click)="paginaAnterior()">&laquo;Anterior</a>
       </li>
       
-      <li class="page-item">
+      <li class="page-item" *ngIf="paginaPosteriorClass()">
         <a class="page-link" (click)="paginaPosterior()">Siguiente&raquo;</a>
       </li>
     </ul>

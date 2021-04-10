@@ -50,6 +50,8 @@ export class ListarImagenComponent implements OnInit {
 
   this.loading = false;
 
+  this.paginaActual = 1;
+
   console.log(data)
 
      if(data.hits.length === 0) {
@@ -84,6 +86,24 @@ export class ListarImagenComponent implements OnInit {
   paginaPosterior(){
 
     this.paginaActual++
+  }
+
+  paginaAnteriorClass(){
+    if(this.paginaActual === 1){
+      return false
+    } else{
+      return true
+    }
+  }
+
+  paginaPosteriorClass(){
+
+    if(this.paginaActual === this.CalcularTotalPaginas){
+      return false
+    } else{
+      return true
+    }
+
   }
 
 }
