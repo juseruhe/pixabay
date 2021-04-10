@@ -37,10 +37,11 @@ export class ImagenService {
 
   }
 
-  getImagenes(termino: string) :Observable <any>{
+  getImagenes(termino: string, imagenesPorPagina: number, paginaActual : number) :Observable <any>{
 
     const KEY = "21098547-a7300dd5738baa88b5454a87d"
-    const URL = "https://pixabay.com/api/?key="+KEY+"&q="+termino;
+    const URL = "https://pixabay.com/api/?key="+KEY+"&q="+termino+"&per_page="
+    +imagenesPorPagina+"&page="+paginaActual;
     return this.http.get(URL)
   }
 }
