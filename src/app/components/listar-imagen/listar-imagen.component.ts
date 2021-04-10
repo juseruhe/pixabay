@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { ImagenService } from 'src/app/services/imagen.service';
 
 @Component({
   selector: 'app-listar-imagen',
@@ -7,7 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListarImagenComponent implements OnInit {
 
-  constructor() { }
+  termino = "";
+
+  subscripcion: Subscription;
+
+  constructor(private _imagenService: ImagenService) {
+
+  this.subscripcion = this._imagenService.getTerminoBusqueda().subscribe(data => {
+
+    console.log(data)
+  })
+    
+  }
 
   ngOnInit(): void {
   }
