@@ -17,12 +17,23 @@ export class ListarImagenComponent implements OnInit {
 
   this.subscripcion = this._imagenService.getTerminoBusqueda().subscribe(data => {
 
-    console.log(data)
+    this.termino = data;
   })
+
+  this.obtenerImagenes()
     
   }
 
   ngOnInit(): void {
+  }
+
+  obtenerImagenes(){
+
+
+    this._imagenService.getImagenes(this.termino).subscribe(data => {
+
+      console.log(data)
+    });
   }
 
 }
