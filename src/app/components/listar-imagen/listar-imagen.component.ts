@@ -17,6 +17,12 @@ export class ListarImagenComponent implements OnInit {
 
   loading = false;
 
+  imagensPorPagina= 30;
+
+  paginaActual = 1;
+
+  CalcularTotalPaginas = 0;
+
 
 
   constructor(private _imagenService: ImagenService) {
@@ -53,6 +59,9 @@ export class ListarImagenComponent implements OnInit {
       return
      }
 
+
+     this.CalcularTotalPaginas = Math.ceil(data.totalHits / this.imagensPorPagina)
+
      this.listImagenes = data.hits
 
 
@@ -64,6 +73,17 @@ export class ListarImagenComponent implements OnInit {
 
 
 
+  }
+
+
+  paginaAnterior(){
+
+    this.paginaActual--
+  }
+
+  paginaPosterior(){
+
+    this.paginaActual++
   }
 
 }
