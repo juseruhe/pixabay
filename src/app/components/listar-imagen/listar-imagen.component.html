@@ -1,1 +1,24 @@
-<p>listar-imagen works!</p>
+<div class="row row-cols-1 row-cols-md-4 g-4">
+    <div *ngFor="let imagen of listImagenes" class="col mb-2">
+      <div class="card">
+        <img [src]="imagen.previewURL" class="card-img-top" alt="...">
+        <div class="card-body text-center">
+         <a [href]="imagen.largeImageURL" target="_blank" class="btn btn-primary">Ver Imagén</a>
+        </div>
+        <div class="card-footer text-muted text-center">
+    <div class="row">
+<div class="col">
+<p class="likesViews">Likes</p>
+<span class="badge badge-light">{{imagen.likes}}</span>
+</div>
+<div class="col">
+    <p class="likesViews">Vistas</p>
+    <span class="badge badge-light">{{imagen.views}}</span>
+    </div>
+</div>
+        </div>
+      </div>
+    </div>
+  
+   
+  </div>

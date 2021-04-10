@@ -13,6 +13,10 @@ export class ListarImagenComponent implements OnInit {
 
   subscripcion: Subscription;
 
+  listImagenes: any[] = [];
+
+
+
   constructor(private _imagenService: ImagenService) {
 
   this.subscripcion = this._imagenService.getTerminoBusqueda().subscribe(data => {
@@ -43,6 +47,7 @@ export class ListarImagenComponent implements OnInit {
       return
      }
 
+     this.listImagenes = data.hits
 
 
     },  error => {
